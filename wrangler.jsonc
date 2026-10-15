@@ -10,9 +10,33 @@
 	"assets": {
 		"not_found_handling": "single-page-application"
 	},
+  "routes": [
+  {
+    "pattern": "memoria.dpdns.org",
+    "zone_name": "memoria.dpdns.org",
+    "custom_domain": true,
+    "enabled": true,
+    "previews_enabled": true
+  }
+],
 	"observability": {
 		"enabled": true
 	},
+  "previews": {
+    "observability": {
+      "enabled": true,
+      "logs": {
+        "enabled": true,
+        "invocation_logs": true,
+        "persist": true
+      },
+      "traces": {
+        "enabled": true,
+        "head_sampling_rate": 1,
+        "persist": true
+      }
+    }
+  },
 	"upload_source_maps": true
 	/**
 	 * Smart Placement
