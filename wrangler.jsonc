@@ -11,6 +11,18 @@
     "directory": "./dist/",
 		"not_found_handling": "single-page-application"
 	},
+
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "7b1b0db590ad485fad55e0284505f15e",
+      
+      // Optional. Can be used to connect to a local database for local development with `wrangler dev`
+      // "localConnectionString": "<LOCAL_CONNECTION_STRING_FOR_LOCAL_DEVELOPMENT_HERE>"
+    }
+  ],
+
+
   "routes": [
   {
     "pattern": "memoria.dpdns.org",
