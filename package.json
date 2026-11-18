@@ -13,8 +13,12 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@hono/oauth-providers": "^0.8.8",
+    "@tailwindcss/vite": "^4.3.5",
     "hono": "^4.13.19",
+    "maplibre-gl": "^6.19.0",
     "pg": "^8.23.1",
+    "tailwindcss": "^4.3.5",
     "vue": "^3.5.42",
     "vue-router": "^5.3.1"
   },
