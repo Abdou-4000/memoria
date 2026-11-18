@@ -15,9 +15,9 @@
     {
       "binding": "HYPERDRIVE",
       "id": "7b1b0db590ad485fad55e0284505f15e", 
+	  "remote":true
       
       // Optional. Can be used to connect to a local database for local development with `wrangler dev`
-      // "localConnectionString": ""
     }
   ],
 
