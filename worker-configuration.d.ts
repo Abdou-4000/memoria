@@ -3,6 +3,10 @@
 // Runtime types generated with workerd@1.20261023.1 2026-10-06
 interface __BaseEnv_Env {
 	HYPERDRIVE: Hyperdrive;
+	GOOGLE_ID: string;	
+    GOOGLE_SECRET: string;	
+    SESSION_SECRET: string;
+    CBEAPI_API_KEY: string;
 }
 declare namespace Cloudflare {
 	interface GlobalProps {
@@ -3965,7 +3969,7 @@ type AiSearchOptions = {
     retrieval?: {
         /** Which retrieval backend to use. Defaults to the instance's configured index_method. */
         retrieval_type?: 'vector' | 'keyword' | 'hybrid';
-        /** Fusion method for combining vector + keyword results. */
+        /** Fusion method for combining vector keyword results. */
         fusion_method?: 'max' | 'rrf';
         /** How keyword terms are combined: "and" = all terms must match, "or" = any term matches. */
         keyword_match_mode?: 'and' | 'or';
@@ -4220,7 +4224,7 @@ type AiSearchListResponse = {
 };
 // ============ AI Search Config Types ============
 type AiSearchConfig = {
-    /** Instance ID (1-32 chars, pattern: ^[a-z0-9_]+(?:-[a-z0-9_]+)*$) */
+    /** Instance ID (1-32 chars, pattern: ^[a-z0-9_(?:-[a-z0-9_)*$) */
     id: string;
     /** Instance type. Omit to create with built-in storage. */
     type?: 'r2' | 'web-crawler' | string;
@@ -5325,7 +5329,7 @@ type ChatCompletionsOutput = {
  * It currently supports basic function calling, json mode and accepts images as input.
  *
  * It does not include types for WebSearch, CodeInterpreter, FileInputs, MCP, CustomTools.
- * We plan to add those incrementally as model + platform capabilities evolve.
+ * We plan to add those incrementally as model platform capabilities evolve.
  */
 type ResponsesInput = {
     background?: boolean | null;
@@ -13657,7 +13661,7 @@ interface HyperdriveDynamicConfig {
 // Licensed under the Apache 2.0 license found in the LICENSE file or at:
 //     https://opensource.org/licenses/Apache-2.0
 type ImageInfoResponse = {
-    format: 'image/svg+xml';
+    format: 'image/svxml';
 } | {
     format: string;
     fileSize: number;

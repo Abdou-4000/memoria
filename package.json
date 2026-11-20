@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@hono/oauth-providers": "^0.8.8",
+    "@maptoolkit/maplibre-logo-control": "^1.1.2",
     "@tailwindcss/vite": "^4.3.5",
     "hono": "^4.13.19",
     "maplibre-gl": "^6.19.0",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.64.0",
     "@tsconfig/node24": "^24.0.5",
+    "@types/geojson": "^7946.0.16",
     "@types/node": "^24.19.2",
     "@types/pg": "^8.23.1",
     "@vitejs/plugin-vue": "^6.0.8",
