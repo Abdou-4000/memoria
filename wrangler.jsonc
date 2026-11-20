@@ -1,35 +1,65 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
 {
-  "name": "memoria",
-  "main": "src/worker.js",
-  "workers_dev": false,
-  "preview_urls": true,
-  "compatibility_date": "2026-10-08",
-  "routes": [
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "memoria",
+	"compatibility_date": "2026-10-06",
+	"main": "server/index.ts",
+	"assets": {    
+	"not_found_handling": "single-page-application",
+	"run_worker_first": [
+		"/api/*"
+	]
+	},
+
+  "hyperdrive": [
     {
-      "pattern": "memoria.dpdns.org",
-      "zone_name": "memoria.dpdns.org",
-      "custom_domain": true,
-      "enabled": true,
-      "previews_enabled": true
+      "binding": "HYPERDRIVE",
+      "id": "7b1b0db590ad485fad55e0284505f15e", 
+	  "remote":true
+      
+      // Optional. Can be used to connect to a local database for local development with `wrangler dev`
     }
   ],
-  "placement": {
-    "mode": "smart"
-  },
-  "observability": {
+
+
+  "routes": [
+  {
+    "pattern": "memoria.dpdns.org",
+    "zone_name": "memoria.dpdns.org",
+    "custom_domain": true,
     "enabled": true,
-    "head_sampling_rate": 1,
-    "redact_query_string": false,
-    "logs": {
-      "enabled": true,
-      "head_sampling_rate": 1,
-      "persist": true,
-      "invocation_logs": true
-    },
-    "traces": {
-      "enabled": false,
-      "persist": true,
-      "head_sampling_rate": 1
-    }
+    "previews_enabled": true
   }
+],
+	"observability": {
+		"enabled": true
+	},
+  "previews": {},
+	"upload_source_maps": true
+	/**
+	 * Smart Placement
+	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
+	 */
+	// "placement": {  "mode": "smart" }
+	/**
+	 * Bindings
+	 * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
+	 * databases, object storage, AI inference, real-time communication and more.
+	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
+	 */
+	/**
+	 * Environment Variables
+	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
+	 * Note: Use secrets to store sensitive data.
+	 * https://developers.cloudflare.com/workers/configuration/secrets/
+	 */
+	// "vars": {  "MY_VARIABLE": "production_value" }
+	/**
+	 * Service Bindings (communicate between multiple Workers)
+	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
+	 */
+	// "services": [  {   "binding": "MY_SERVICE",   "service": "my-service"  } ]
 }
